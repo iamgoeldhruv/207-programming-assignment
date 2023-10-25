@@ -36,23 +36,29 @@ int main(int argc, char* argv[]) {
     }
     int tlbaccessvalues;
     int z=0;
+    int pageoffset;
     while(tlbfile>>tlbaccessvalues){
         z++;
+        if(z==1){
+            pageoffset=tlbaccessvalues;
+
+        }
         if(z>1){
             tlbaccess.push_back(tlbaccessvalues);
 
         }
 
     }
-     cout<<tlbaccess[1]<<endl;
-    
-    
+    int totalaccess=0;
+    int totalhits=0;
+    int totalmiss=0;
+    for(int i=0;i<tlbaccess.size();i++){
+        int x=(tlbaccess[i]>>pageoffset);
+        
+    }
 
 
- 
-
-  
-    return 0;
+   return 0;
 
 }
     
